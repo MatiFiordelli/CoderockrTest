@@ -2,21 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
 @import './CSS/menu.css';
 @import './CSS/posts-list.css';
+@import './CSS/post.css';
 @import './CSS/contact.css';
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 * {
   text-decoration:none;
@@ -24,8 +11,19 @@ code {
   outline: none;
 }
 
+body {
+  background: linear-gradient(90deg, #F1A10A 0%, #342303 100%);
+  margin: 0 auto;
+  font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .main {
-  /* display: grid;
-  grid-template-rows: auto auto; */
-  position: relative;
+/*   display: grid;
+  grid-auto-flow: row;
+  position: relative; */
+
 }

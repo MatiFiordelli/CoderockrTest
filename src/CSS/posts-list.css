@@ -1,14 +1,149 @@
+:root{
+    --size:calc(100vw/6);
+    --bigSize:calc(100vw/3);
+}
+
+/*Main Posts List*/
 .posts-list{
-    color:white;
-    background: linear-gradient(90deg, #F1A10A 0%, #342303 100%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0px;
-    bottom: 0%;
+    color:white;
     width:100%;
-    height: 100vh;
-    padding-top:121px ;
-    z-index: 30;
+    /* height: 1008vh; */
+    /* position: relative; */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-top:130px ;
+    /*z-index: 30;*/
+    display: grid;
+    grid-auto-flow: row;
+    row-gap: 60px;    
+}
+
+/*Double post*/
+.doublepost{
+    background-color: #FFFFFF;
+    left:0px;
+    width:100vw;
+    height: var(--size);
+    position: relative;
+}
+
+.doublepost__image{
+    background-color: black;
+    position: absolute;
+    width: var(--size);
+    height:var(--size);   
+}
+
+.doublepost__texts{
+    position: absolute;
+    width:calc(var(--size)*2);
+    height:var(--size);
+}
+
+/*The 4 positions of every element on the double post component*/
+.doublepost__image--position1{
+    left: 0px;
+}
+
+.doublepost__image--position2{
+    left:calc(100%/2);
+}
+
+.doublepost__texts--position1{
+    left:var(--size); 
+}
+
+.doublepost__texts--position2{
+    right:0px;
+}
+
+/*The 4 positions of every element on the double post component reversed*/
+.doublepost__image--position1reverse{
+    right: calc(100vw/2);
+}
+
+.doublepost__image--position2reverse{
+    right: 0px;
+}
+
+.doublepost__texts--position1reverse{
+    left:0px; 
+}
+
+.doublepost__texts--position2reverse{
+    left:calc(100%/2);
+}
+
+/*Single big post*/
+.singlepost{
+    background-color: #FFFFFF;
+    right:0px;
+    width: calc(var(--bigSize)*2);
+    height: var(--bigSize);
+    /* position: relative; */
+
+    /* display: flex;
+    align-items: center;
+    justify-content: center;  */
+}
+
+.singlepost__image{
+    background-color: black;
+    left:0px;
+    position: absolute;
+    width:var(--bigSize);
+    height:var(--bigSize);
+}
+
+.singlepost__texts{
+    color: black;
+    display: grid;
+    left:calc(100%/2);
+    padding-left: 60px;
+    padding-right: 60px;
+    position: relative;    
+    
+}
+
+
+/*Text content component*/
+.texts-post{
+    font-family: 'Rubik';
+    font-style: normal;
+    border:2px solid red;
+    padding:20px;
+    /* position: absolute; */
+    width: 100%;
+    height: auto;
+}
+
+.texts-post__name{
+    color:#2D2D2D;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 65px;
+}
+
+.texts-post__title{
+    color: #F1A10A;
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.texts-post__details{
+    color: #2D2D2D;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    padding-top:20px;
+}
+
+.texts-post-arrow{
+    color: #032937;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: right;
+    right:30px;
+    bottom:25px;
 }

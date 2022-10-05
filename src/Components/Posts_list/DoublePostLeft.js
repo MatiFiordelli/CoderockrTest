@@ -1,20 +1,27 @@
 import React from 'react'
+import TextsPost from './TextsPost.js'
 
-export default function PreviewDoublePostLeft(){
+export default function DoublePostLeft(){
     return(
         <>
-            <article>
-                <div>
+            <article className="doublepost">
+                <div className="doublepost__image doublepost__image--position1">
                     foto
                 </div>
-                <div>
-                    texto
+                <div className="doublepost__texts doublepost__texts--position1">
+                    <TextsPost/>
+                    <div className="texts-post-arrow">
+                    »
+                    </div>
                 </div>
-                <div>
+                <div className="doublepost__image doublepost__image--position2">
                     foto
                 </div>
-                <div>
-                    texto
+                <div className="doublepost__texts doublepost__texts--position2">
+                    <TextsPost/>
+                    <div className="texts-post-arrow">
+                    »
+                    </div>
                 </div>
             </article>
         </>
