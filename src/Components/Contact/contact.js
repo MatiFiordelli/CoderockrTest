@@ -24,7 +24,8 @@ export default function Contact(){
                             className="contact-form__input" 
                             value="" 
                             autoFocus 
-                            placeholder="Fill your full name"/>
+                            placeholder="Fill your full name"
+                            onChange={()=>{}}/>
 
                     <label htmlFor="iEmail" 
                             className="contact-form__label">E-mail</label>
@@ -32,7 +33,8 @@ export default function Contact(){
                             name="fEmail" 
                             id="iEmail"
                             className="contact-form__input"
-                            placeholder="Fill a valid  e-mail"/>
+                            placeholder="Fill a valid  e-mail"
+                            onChange={()=>{}}/>
 
                     <label htmlFor="iPhone" 
                             className="contact-form__label">Phone</label>
@@ -40,14 +42,16 @@ export default function Contact(){
                             name="fPhone" 
                             id="iPhone"
                             className="contact-form__input"
-                            placeholder="Fill your phone"/>
+                            placeholder="Fill your phone"
+                            onChange={()=>{}}/>
 
                     <label htmlFor="iPost" 
                             className="contact-form__label">Post</label>
                     <textarea name="fPost" 
                             id="iPost"
                             className="contact-form__textarea"
-                            placeholder="Hello..."/>
+                            placeholder="Hello..."
+                            onChange={()=>{}}/>
 
                     <button type="submit" 
                             className="contact-form__button">&#x25bb;&nbsp;&nbsp;&nbsp;Submit</button>

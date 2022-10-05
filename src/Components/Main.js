@@ -7,10 +7,11 @@ import Contact from './Contact/contact.js'
 export default function Main(){
     return(
         <main className='main'>
-            {/*<Post/>
-            <Contact/>*/}
+            
+            {/*<Contact/>
+            <Post/>*/}
             <Menu/>
-            <PostsList/> 
+            <PostsList/>
         </main>
     )
 }
