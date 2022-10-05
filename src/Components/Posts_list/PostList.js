@@ -9,12 +9,12 @@ export default function PostsList(){
             <article className="asd">
                 <DoublePostLeft/>
             </article>
-            {<article className="asd">
+            {/* <article className="asd">
                 <SinglePost/>  
-            </article>}
+            </article>
             <article className="asd">
                 <DoublePostRight/>
-            </article>
+            </article> */}
         </div>
     )
 }
