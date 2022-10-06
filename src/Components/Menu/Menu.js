@@ -34,7 +34,7 @@ export default function Menu(){
 
     //Hide Menu Bar on scroll (Optional Effect)
     const [prevScrollPos, setPrevScrollPos]  = useState(window.pageYOffset)
-    window.onscroll = function() {
+    window.onscroll = () => {
 		let currentScrollPos = window.pageYOffset
         let el = document.querySelector('.menu')
 
