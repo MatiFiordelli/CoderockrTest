@@ -9,7 +9,7 @@ export default function DoublePostLeft(){
                     foto
                 </div>
                 <div className="doublepost__texts doublepost__texts--position1">
-                    <TextsPost/>
+                    <TextsPost origin="double"/>
                     <div className="texts-post-arrow">
                     »
                     </div>
@@ -18,7 +18,7 @@ export default function DoublePostLeft(){
                     foto
                 </div>
                 <div className="doublepost__texts doublepost__texts--position2">
-                    <TextsPost/>
+                    <TextsPost origin="double"/>
                     <div className="texts-post-arrow">
                     »
                     </div>

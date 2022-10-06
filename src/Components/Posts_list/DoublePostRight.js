@@ -6,7 +6,7 @@ export default function DoublePostRight(){
         <>
             <article className="doublepost">
                 <div className="doublepost__texts doublepost__texts--position1reverse">
-                    <TextsPost/>
+                    <TextsPost origin="double"/>
                     <div className="texts-post-arrow">
                     »
                     </div>
@@ -15,7 +15,7 @@ export default function DoublePostRight(){
                     foto
                 </div>
                 <div className="doublepost__texts doublepost__texts--position2reverse">
-                    <TextsPost/>
+                    <TextsPost origin="double"/>
                     <div className="texts-post-arrow">
                     »
                     </div>

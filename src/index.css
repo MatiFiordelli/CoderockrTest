@@ -1,9 +1,9 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
-@import './CSS/menu.css';
-@import './CSS/posts-list.css';
-@import './CSS/post.css';
-@import './CSS/contact.css';
+@import './CSS/Menu/menu.css';
+@import './CSS/Posts-list/posts-list.css';
+@import './CSS/Post/post.css';
+@import './CSS/Contact/contact.css';
 
 * {
   text-decoration:none;
@@ -14,16 +14,11 @@
 body {
   background: linear-gradient(90deg, #F1A10A 0%, #342303 100%);
   margin: 0 auto;
+  padding: 0px;
+  overflow-x: hidden;
   font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.main {
-/*   display: grid;
-  grid-auto-flow: row;
-  position: relative; */
-
 }
