@@ -31,6 +31,23 @@ export default function Menu(){
         setBtnHamburgerEffect(!btnHamburgerEffect)
     }/*for mobile devices*/
 
+
+    //Hide Menu Bar on scroll (Optional Effect)
+    const [prevScrollPos, setPrevScrollPos]  = useState(window.pageYOffset)
+    window.onscroll = function() {
+		let currentScrollPos = window.pageYOffset
+        let el = document.querySelector('.menu')
+
+		//Controls if the scrollY is up or down
+		if (prevScrollPos > currentScrollPos) {
+			el.style.top = '0px'
+		}else {
+			el.style.top = '-100px'
+		}
+		setPrevScrollPos(currentScrollPos)
+	}
+
+
     return(
         <header className="menu-container">
             {/*menu for other devices*/}

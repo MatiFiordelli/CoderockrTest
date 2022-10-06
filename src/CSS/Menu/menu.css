@@ -12,18 +12,20 @@
 	font-family: 'Rubik', sans-serif;
 	justify-content: center;
 	list-style:none;
+	margin: 0;
+	padding:0;
 	position: fixed;
 	left: 0%;
 	right: 0%;
 	top: 0px;
 	bottom: 0%; 
-	height: var(--heightMenu);
 	width: 100%;
-	text-align:center;
+	height: var(--heightMenu);
 	user-select:none;
+	text-align:center;
+	transition: 800ms;
 	z-index: 40;
-	margin: 0;
-	padding:0;
+
 }
   
 .menu__logo{

@@ -10,17 +10,16 @@
     z-index: 50;
     position:fixed;
     overflow: scroll;
+    top:0px
 }
 
 .contact-box {
     background-color: #FFFFFF;
     width: 30vw;
     height: auto;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    
+    display: table;
     margin-top:150px;
+    position: absolute;
     padding: 0 100px;
 }
 
