@@ -1,0 +1,135 @@
+@import url('./texts-post.css');
+
+:root{
+    --size:calc(100vw/6);
+    --bigSize:calc(100vw/3);
+}
+
+/*Main Posts List*/
+.posts-list{
+    color:#FFFFFF;
+    display: grid;
+    grid-auto-flow: row;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-top:145px;
+    row-gap: 60px;
+    width:100%;
+}
+
+
+/*Double post*/
+.doublepost{
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left:0px;
+    width:100vw;
+    height: var(--size);
+    overflow: hidden;
+    position: relative;
+}
+
+.doublepost__image{
+    background-color: black;
+    position: absolute;
+    width: var(--size);
+    height:var(--size);   
+}
+
+.doublepost__texts{
+    position: absolute;
+    width:calc(var(--size)*2);
+    height:var(--size);
+}
+
+
+/*The 4 positions of every element on the double post component*/
+.doublepost__image--position1{
+    left: 0px;
+}
+
+.doublepost__texts--position1{
+    left:var(--size); 
+}
+
+.doublepost__image--position2{
+    left:calc(var(--size)*3);
+}
+
+.doublepost__texts--position2{
+    left:calc(var(--size)*4);
+}
+
+/*The 4 positions of every element on the double post component reversed*/
+.doublepost__image--position1reverse{
+    right: calc(100vw/2);
+}
+
+.doublepost__image--position2reverse{
+    right: 0px;
+}
+
+.doublepost__texts--position1reverse{
+    left:0px; 
+}
+
+.doublepost__texts--position2reverse{
+    left:calc(100%/2);
+}
+
+
+/*Single big post*/
+.position-left{
+    left:0px; 
+}
+
+.position-right{
+    left:var(--bigSize); 
+}
+
+.singlepost{
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative; 
+    width: calc(var(--bigSize)*2);
+    height: var(--bigSize);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}
+
+.singlepost__image{
+    background-color: black;
+    width:var(--bigSize);
+    height:var(--bigSize);
+}
+
+.singlepost__texts{
+    color: black;
+    width:var(--bigSize);
+    height:var(--bigSize);
+}
+
+@media only screen and (max-width:1125px){
+    .posts-list{
+        row-gap: 20px;
+    }
+
+    .doublepost{
+        display: none; /*ver si se saca!!!!!!!!!!!!!!!!*/
+    }
+
+    .singlepost{
+        grid-template-columns: 1fr 2fr;
+        width: 100%;
+    }
+
+    .position-right{
+        left:0px; 
+    }
+    .singlepost__texts{
+        justify-self: center;
+        position: relative;
+        width: 90%;
+    }
+}

@@ -6,15 +6,18 @@ import SinglePost from './SinglePost'
 export default function PostsList(){
     return(
         <div className="posts-list">
-            <article className="asd">
+            <article>
                 <DoublePostLeft/>
             </article>
-            {/* <article className="asd">
-                <SinglePost/>  
+            <article>
+                <SinglePost position="left"/>  
             </article>
-            <article className="asd">
+            <article>
                 <DoublePostRight/>
-            </article> */}
+            </article>
+            <article>
+                <SinglePost position="right"/>  
+            </article>
         </div>
     )
 }
