@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { DataContext } from '../Main.js'
 
 export default function TextsPost(props){
+    const {data, setData} = useContext(DataContext)
     const [textsPostOrigin, setTextPostOrigin] = useState('')
     const [nameClass, setNameClass] = useState('')
     const [titleClass, setTitleClass] = useState('')
     const [detailsClass, setDetailsClass] = useState('')
-
+    
     useEffect(()=>{
         if(props.origin === 'double'){
             setTextPostOrigin('texts-post-double')
@@ -18,20 +20,21 @@ export default function TextsPost(props){
             setTitleClass('texts-post__title-single')
             setDetailsClass('texts-post__details-single')
         }
+        
     }, [])
-    
+
     return(
         <div className={textsPostOrigin}>
             <div className={nameClass}>
-                Sydney Legros
+                {props.index!==undefined && data[props.index].author} 
             </div>
 
             <div className={titleClass}>
-                Possimus saepe et illum molestiae et quibusdam
+                {props.index!==undefined && data[props.index].title} 
             </div>
 
             <div className={detailsClass}>
-                Excepturi quod aliquid impedit earum consequatur eos. In quo fuga ad odio beatae
+                {props.index!==undefined && data[props.index].article} 
             </div>
         </div>
     )

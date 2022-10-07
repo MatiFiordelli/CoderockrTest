@@ -1,3 +1,7 @@
+
+
+//corregir hamburguer al sumir el menu en mobile!!!!!!!!!!!!!!!!!!!!!
+
 import React, { useState, useEffect, useContext, useRef } from 'react'
 import { createRoot } from 'react-dom/client'
 import { DataContext } from '../Main'
@@ -11,27 +15,40 @@ import Spinner from '../Spinner/Spinner.js'
 export default function PostsList(){
     const {data} = useContext(DataContext)
     const {spinner, setSpinner} = useContext(SpinnerContext)
-    const [posted, setPosted] = useState(0) //amount of articles posted currently
+    const [articleKey, setArticleKey] = useState(0)
+    const articleCounter = useRef(-1)
 
     const articleFormat = (f, i, format)=> {
-        //1:doubleLeftImage, 2:singleRight, 3:doubleRightImage, 4:singleRight, m:mobile
-        if(f==='m'){ 
-            return (<article key={posted+i}><SinglePost/></article>) 
-        } else{
+        //1:doubleLeftImage, 2:singleRight, 3:doubleRightImage, 4:singleRight
+        if(f==='mobile'){ 
+            articleCounter.current += 1   
+            let  idx = articleCounter.current
+            return (<article key={articleKey+i}><SinglePost index={idx}/></article>) 
+        } 
+        if(f==='pc'){
             if(format===1){
-                return (<article key={posted+i}><DoublePostLeft/></article>)
+                articleCounter.current += 2
+                const  idx = articleCounter.current
+                return (<article key={articleKey+i}><DoublePostLeft index={idx}/></article>)
             }
             if(format===2){
-                return (<article key={posted+i}><SinglePost position="left"/>  </article>)
+                articleCounter.current += 1
+                const idx = articleCounter.current
+                return (<article key={articleKey+i}><SinglePost position="left" index={idx}/>  </article>)
             }
             if(format===3){
-                return (<article key={posted+i}><DoublePostRight/></article>)
+                articleCounter.current += 2
+                const  idx = articleCounter.current
+                return (<article key={articleKey+i}><DoublePostRight index={idx}/></article>)
             }
             if(format===4){
-                return (<article key={posted+i}><SinglePost position="right"/> </article>)
+                articleCounter.current += 1
+                const  idx = articleCounter.current
+                return (<article key={articleKey+i}><SinglePost position="right" index={idx}/> </article>)
             }
         }
     }
+
 
     const detectDevice = () => {
         let width = window.screen.width
@@ -43,32 +60,37 @@ export default function PostsList(){
     }
 
     
-    const arrayComponents = useRef([])
+    const arrayComponent = useRef([])
     const loadArrayOfComponents = () => {
-        setSpinner(true)
-        let postAmount = 8 //amount of articles displayed per time
-        let postTotal = Object.entries(data).length
-        let arrayTemp = arrayComponents.current
-        let format = 0
+        let postTotal = Object.entries(data).length - 1
+        if(articleCounter.current < postTotal){
 
-        for(let i=0; i<postAmount; i++){
-            if(detectDevice()==='mobile'){ //mobile or pc
-                arrayTemp.push(articleFormat('m', i))
-            }else{
-                format+=1
-                if(format>4)format=1 //verrrrr
-                arrayTemp.push(articleFormat('p', i, format))
+            setSpinner(true)
+            let postAmount = 8 //amount of articles displayed per time
+            let arrayTemp = arrayComponent.current
+            let format = 0
+
+            for(let i=0; i<postAmount; i++){
+                if(detectDevice()==='mobile'){
+                    arrayTemp.push(articleFormat('mobile', i))
+                }
+                if(detectDevice()==='pc'){
+                    format+=1
+                    if(format>4)format=1 
+                    arrayTemp.push(articleFormat('pc', i, format))
+                }
             }
+            arrayComponent.current = arrayTemp
+            if(arrayComponent.current !== []){
+                //I decided not to use the next line so as not lose the global state context, otherwise I should have used Props.
+                //root.render([...arrayComponent.current])
+            }
+            setArticleKey(articleKey + 8)
+            setSpinner(false)
+            return [...arrayComponent.current]
         }
-        arrayComponents.current = arrayTemp
-        if(arrayComponents.current !== []){
-            root.render([...arrayComponents.current])
-        }
-        setPosted(posted + 8)
-        setSpinner(false)
-        return arrayComponents.current
-
     }
+    
     
     const[root, setRoot] = useState()
     const el = useRef()
@@ -81,10 +103,13 @@ export default function PostsList(){
         if(data!==''){ loadArrayOfComponents() }
     },[data])
 
+
     return(
         <>
             {spinner && (<Spinner/>)}
-            <div className="posts-list"/>
+                <div className="posts-list">
+                    {[...arrayComponent.current]}
+                </div>
             <button type="button" className="btnLoadMore" onClick={()=>loadArrayOfComponents()}>Load More</button>
         </>
     )

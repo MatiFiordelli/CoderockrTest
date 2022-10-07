@@ -33,7 +33,7 @@
     background-color: black;
     position: absolute;
     width: var(--size);
-    height:var(--size);   
+    height:var(--size);
 }
 
 .doublepost__texts{
@@ -61,16 +61,16 @@
 }
 
 /*The 4 positions of every element on the double post component reversed*/
+.doublepost__texts--position1reverse{
+    left:0px; 
+}
+
 .doublepost__image--position1reverse{
     right: calc(100vw/2);
 }
 
 .doublepost__image--position2reverse{
     right: 0px;
-}
-
-.doublepost__texts--position1reverse{
-    left:0px; 
 }
 
 .doublepost__texts--position2reverse{
