@@ -4,6 +4,7 @@
 @import './CSS/Posts-list/posts-list.css';
 @import './CSS/Post/post.css';
 @import './CSS/Contact/contact.css';
+@import './CSS/Spinner/spinner.css';
 
 * {
   text-decoration:none;

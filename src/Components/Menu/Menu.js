@@ -8,12 +8,12 @@ export default function Menu(){
     const [btnHamburgerEffect, setBtnHamburgerEffect] = useState(false)
     let btnLine1, btnLine2, btnLine3, menuMobile
 
-    useEffect(()=>{
+    //useEffect(()=>{
         btnLine1 = document.querySelector('.hamburger-button__line1')
         btnLine2 = document.querySelector('.hamburger-button__line2')
         btnLine3 = document.querySelector('.hamburger-button__line3')
         menuMobile = document.querySelector('.menu-mobile')
-    }, [btnHamburgerEffect])
+    //})
 
     const buttonMenuEffect = () => {
         if(btnHamburgerEffect){
