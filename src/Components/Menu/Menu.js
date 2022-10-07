@@ -8,27 +8,30 @@ export default function Menu(){
     const [btnHamburgerEffect, setBtnHamburgerEffect] = useState(false)
     let btnLine1, btnLine2, btnLine3, menuMobile
 
-    //useEffect(()=>{
-        btnLine1 = document.querySelector('.hamburger-button__line1')
-        btnLine2 = document.querySelector('.hamburger-button__line2')
-        btnLine3 = document.querySelector('.hamburger-button__line3')
-        menuMobile = document.querySelector('.menu-mobile')
-    //})
+    btnLine1 = document.querySelector('.hamburger-button__line1')
+    btnLine2 = document.querySelector('.hamburger-button__line2')
+    btnLine3 = document.querySelector('.hamburger-button__line3')
+    menuMobile = document.querySelector('.menu-mobile')
+
+    const showX = () => {
+        btnLine1.style.transform = 'translate(0, 11px) rotate(-45deg)'
+        btnLine2.style.opacity = '0'
+        btnLine3.style.transform = 'translate(0, -11px) rotate(45deg)'
+        menuMobile.style.opacity = '1'
+        setBtnHamburgerEffect(!btnHamburgerEffect)
+    }
+    const showHamburger = () => {
+        btnLine1.style.transform = 'translate(0, 0px) rotate(0deg)'
+        btnLine2.style.opacity = '1'
+        btnLine3.style.transform = 'translate(0, 0px) rotate(0deg)'
+        menuMobile.style.opacity = '0'
+        setBtnHamburgerEffect(!btnHamburgerEffect)
+    }
 
     const buttonMenuEffect = () => {
-        if(btnHamburgerEffect){
-            btnLine1.style.transform = 'translate(0, 0px) rotate(0deg)'
-            btnLine2.style.opacity = '1'
-            btnLine3.style.transform = 'translate(0, 0px) rotate(0deg)'
-            menuMobile.style.opacity = '0'
-        } else {
-            btnLine1.style.transform = 'translate(0, 11px) rotate(-45deg)'
-            btnLine2.style.opacity = '0'
-            btnLine3.style.transform = 'translate(0, -11px) rotate(45deg)'
-            menuMobile.style.opacity = '1'
-        }
-        
-        setBtnHamburgerEffect(!btnHamburgerEffect)
+        !btnHamburgerEffect
+            ?showHamburger()
+            :showX()
     }/*for mobile devices*/
 
 
@@ -37,12 +40,18 @@ export default function Menu(){
     window.onscroll = () => {
 		let currentScrollPos = window.pageYOffset
         let el = document.querySelector('.menu')
+        let el2 = document.querySelector('.hamburger-button')
+        let el3 = document.querySelector('.menu-mobile')
 
 		//Controls if the scrollY is up or down
 		if (prevScrollPos > currentScrollPos) {
 			el.style.top = '0px'
+            el2.style.opacity = '1'
+            showHamburger()
 		}else {
 			el.style.top = '-100px'
+            el2.style.opacity = '0'
+            el3.style.opacity = '0'
 		}
 		setPrevScrollPos(currentScrollPos)
 	}

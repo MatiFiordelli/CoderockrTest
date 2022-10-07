@@ -1,7 +1,3 @@
-
-
-//corregir hamburguer al sumir el menu en mobile!!!!!!!!!!!!!!!!!!!!!
-
 import React, { useState, useEffect, useContext, useRef } from 'react'
 import { createRoot } from 'react-dom/client'
 import { DataContext } from '../Main'
