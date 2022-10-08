@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { DataContext } from '../Main.js'
 import TextsPost from './TextsPost.js'
 
 export default function SinglePost(props){
-    const {data, setData} = useContext(DataContext)
+    const {data} = useContext(DataContext)
     const [positionX, setPositionX] = useState('')
 
     useEffect(()=>{
@@ -25,7 +26,7 @@ export default function SinglePost(props){
                     <TextsPost origin="single" index={props.index}/>
                 </div>
                 <div className="texts-post-arrow">
-                » 
+                    <Link to={`/post/${data[props.index].id}`}>»</Link>
                 </div>
             </article>
     )

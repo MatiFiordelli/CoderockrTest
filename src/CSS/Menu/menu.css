@@ -106,7 +106,6 @@
 	transition: 400ms;
 	width: 300px;
 	height: 100vh;
-	z-index: 42;
 }
 
 .menu-mobile__items{

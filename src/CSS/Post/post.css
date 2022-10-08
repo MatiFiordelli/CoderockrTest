@@ -9,6 +9,7 @@
     margin: 130px auto;
     width: calc(var(--sizePost)*2);
     height:100%;
+    z-index: 77;
 }
 
 .full-post-top{
@@ -59,6 +60,7 @@
 }
 
 .full-post-details{
+    color:#2D2D2D;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -69,25 +71,34 @@
 @media only screen and (max-width:950px){
     .full-post-top__intro{
         gap:0px;
-        justify-content: flex-start;
+        justify-content: center;
+        align-items: flex-start;
     }
 
     .full-post-top__intro--name,
     .full-post-top__intro--date,
     .full-post-top__intro--title{
+        line-height: 35px;
         margin: 0 0 0 10px;
     }
     .full-post-top__intro--title{
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     .full-post-details{
         padding: 50px 50px;
     }
-
 }
 
-@media only screen and (max-width:450px){
+@media only screen and (max-width:530px){
+    .full-post-top__intro--date{
+        font-size: 0.6rem;
+    }
+    .full-post-top__intro--name{
+        font-size: 0.6rem;
+        line-height: 25px;
+    }
     .full-post-top__intro--title{
-        font-size: 0.8rem;
+        font-size: 0.7rem;
+        line-height: 15px;
     }
 }

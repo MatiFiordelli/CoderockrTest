@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function Contact(){
-        const [name, setName] = useState('')
-        const [email, setEmail] = useState('')
-        const [phone, setPhone] = useState('')
-        const [post, setPost] = useState('')
-	let navigate = useNavigate()
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [post, setPost] = useState('')
+	const navigate = useNavigate()
 
 	const closeContact = () => {
 		const close = document.querySelector('.contact-container')
@@ -14,9 +14,9 @@ export default function Contact(){
 		navigate('/')
 	}
 
-        const submitPost = (e) => {
-            e.preventDefault()
-        }
+    const submitPost = (e) => {
+        e.preventDefault()
+    }
 
     return(
         <div className='contact-container'>

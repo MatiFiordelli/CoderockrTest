@@ -55,7 +55,6 @@ export default function PostsList(){
         }
     }
 
-    
     const arrayComponent = useRef([])
     const loadArrayOfComponents = () => {
         let postTotal = Object.entries(data).length - 1
@@ -87,26 +86,18 @@ export default function PostsList(){
         }
     }
     
-    
-    const[root, setRoot] = useState()
-    const el = useRef()
-    useEffect(()=>{
-        el.current = document.querySelector('.posts-list')
-        setRoot(createRoot(el.current))
-    },[])
-
     useEffect(()=>{ 
         if(data!==''){ loadArrayOfComponents() }
     },[data])
 
 
     return(
-        <>
+        <div className="posts-list-container">
             {spinner && (<Spinner/>)}
-                <div className="posts-list">
-                    {[...arrayComponent.current]}
-                </div>
+            <div className="posts-list">
+                {[...arrayComponent.current]}
+            </div>
             <button type="button" className="btnLoadMore" onClick={()=>loadArrayOfComponents()}>Load More</button>
-        </>
+        </div>
     )
 }

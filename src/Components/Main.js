@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import FetchData from './Data/Fetch_data.js'
-
 import Menu from './Menu/Menu.js'
 import PostsList from './Posts_list/PostsList.js'
-//import Post from '././Posts_list/Post/Post.js'
+import Routess from './Routes/Routess.js'
 
 export const DataContext = React.createContext()
 export const SpinnerContext = React.createContext()
@@ -19,7 +18,7 @@ export default function Main(){
                     <FetchData/>
                     <Menu/>
                     <PostsList/>
-                    {/* <Post/> */} 
+                    <Routess/>
                 </SpinnerContext.Provider>
             </DataContext.Provider>
         </>

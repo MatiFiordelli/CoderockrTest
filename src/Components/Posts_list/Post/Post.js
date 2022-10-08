@@ -1,30 +1,82 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { useParams } from 'react-router-dom'
+import { DataContext } from '../../Main.js'
+
 
 export default function Post(){
+    const {data} = useContext(DataContext)
+    const [index, setIndex] = useState(-1)
+    const { id }  = useParams()
+    
+    const findIndex = (id) => {
+        for(let i in data){
+            if(data[Number(i)].id === id){
+                setIndex(Number(i))
+                return
+            }
+        }
+    }
+    
+
+    const formattedDate = () => {
+        if(index!==-1){
+            let date = data[index].date.split('-')
+            let day = date[2].substr(0,2)
+            if(day[0]==='0') day = day.slice(1,2)
+            
+            const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec' ]
+            const month = months[ Number(date[1])-1 ]
+
+            const year = date[0]
+            return `${month} ${day}, ${year}`
+        }
+    }
+
+    useEffect(()=>{
+        const el = document.querySelector('.posts-list-container')
+        el.style.display = 'none'
+        window.scrollTo(0,0)
+
+        return ()=>{
+            el.style.display = 'grid'
+            window.scrollTo(0,0)
+        }        
+    }, [])
+
+    useEffect(()=>{
+        data!=='' && findIndex(id)
+    },[data])
+    
+    
     return(
         <div className="full-post">
             <div className="full-post-top">
-                <div className="full-post-top__image">
-                    foto
-                </div>
+            {index!==-1 &&
+                <img className="singlepost__image" 
+                    src={data[index].imageUrl} 
+                    alt="Image Article" 
+                    title={data[index].imageUrl} />
+            } 
+            {index!==-1 &&
                 <div className="full-post-top__intro">
                     <div className="full-post-top__intro--date">
-                        Jan 6, 2018
+                        {formattedDate()}
                     </div>
                     <div className="full-post-top__intro--name">
-                        Kelsi Monahan
+                        {data[index].author}
                     </div>
                     <div className="full-post-top__intro--title">
-                        Qui occaecati vero et quibusdam non 
+                        {data[index].title}
                     </div>
                 </div>
+            }
             </div>
-                
+
+            {index!==-1 &&    
             <div className="full-post-details">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend ligula in nulla vulputate pharetra. Proin condimentum, libero quis feugiat pharetra, ante arcu faucibus felis, vel elementum magna felis in libero. Aliquam id ultricies purus. Etiam at ullamcorper enim. Cras vel elit ac lorem condimentum dignissim. Ut rhoncus neque finibus erat congue, id tempus lacus hendrerit. Curabitur non faucibus diam. Sed id ante id dolor euismod varius eu vel velit.
-Maecenas id ligula quis enim blandit gravida a et lorem. Vivamus eu turpis eu leo malesuada dictum non ac tortor. Pellentesque volutpat mollis leo tincidunt sollicitudin. Suspendisse porta imperdiet sapien nec euismod. Quisque ac dictum sem. Cras in porttitor lacus, vitae convallis elit. Maecenas in fermentum erat, a rutrum nulla.
-Mauris quis dolor sit amet metus mollis tempor eu quis turpis. Vestibulum vel eleifend magna, eget tempor nulla. Donec bibendum mauris aliquam elit vulputate, id vestibulum lorem sodales. Nullam eget erat mauris. Etiam sit amet sollicitudin magna. Ut tortor nisi, mollis viverra tempus consequat, interdum non mi. Quisque bibendum, lacus sit amet rhoncus malesuada.
+                {data[index].article}
             </div>
+            }
         </div>
     )
 }

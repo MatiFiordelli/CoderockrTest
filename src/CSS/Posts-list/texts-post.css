@@ -137,7 +137,7 @@
     }
     .texts-post__title-single{
         font-size: 18px;
-        line-height: 15px;
+        line-height: 25px;
     }
     .texts-post__details-single{
         font-size: 14px;
@@ -163,12 +163,20 @@
         padding-bottom: 10px;
     }
     .texts-post__title-single{
-        font-size: 12px;
+        font-size: 11px;
         line-height: 12px;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        text-overflow:clip;
+        -webkit-box-orient: vertical;
+        max-height: 80px;
+        word-break: break-word;
+        overflow: hidden;
     }
     .texts-post__details-single{
         font-size: 10px;
         line-height: 12px;
+        padding-top: 10px;
     }
     .texts-post-arrow{
         font-size: 10px;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
-import Contact from '../Contact/contact.js'
+import { Link } from 'react-router-dom'
 
 export default function Menu(){
 
@@ -18,6 +17,8 @@ export default function Menu(){
         btnLine2.style.opacity = '0'
         btnLine3.style.transform = 'translate(0, -11px) rotate(45deg)'
         menuMobile.style.opacity = '1'
+        menuMobile.style.display = 'block'
+        menuMobile.style.zIndex = '42'
         setBtnHamburgerEffect(!btnHamburgerEffect)
     }
     const showHamburger = () => {
@@ -25,6 +26,7 @@ export default function Menu(){
         btnLine2.style.opacity = '1'
         btnLine3.style.transform = 'translate(0, 0px) rotate(0deg)'
         menuMobile.style.opacity = '0'
+        menuMobile.style.display = 'none'
         setBtnHamburgerEffect(!btnHamburgerEffect)
     }
 
@@ -43,7 +45,7 @@ export default function Menu(){
         let el2 = document.querySelector('.hamburger-button')
         let el3 = document.querySelector('.menu-mobile')
 
-		//Controls if the scrollY is up or down
+		//Detects if the scrollY is up or down
 		if (prevScrollPos > currentScrollPos) {
 			el.style.top = '0px'
             el2.style.opacity = '1'
@@ -77,10 +79,6 @@ export default function Menu(){
                 <li className="menu-mobile__items"><Link to="/contact">Contact</Link></li>
             </div>
 
-            <Routes>
-                <Route path="/" element=""></Route>
-                <Route path="/contact" element={<Contact/>}></Route>
-            </Routes>
         </header>
     )
 }
