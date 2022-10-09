@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react'
-import { createRoot } from 'react-dom/client'
+//import { createRoot } from 'react-dom/client'
 import { DataContext } from '../Main'
 import { SpinnerContext } from '../Main'
 
@@ -89,7 +89,13 @@ export default function PostsList(){
     useEffect(()=>{ 
         if(data!==''){ loadArrayOfComponents() }
     },[data])
-
+    
+    //Detects if the scroll reachs the bottom page, for the infinite scroll
+    window.onscroll = () =>  {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            loadArrayOfComponents()
+        }
+    }
 
     return(
         <div className="posts-list-container">
@@ -97,7 +103,6 @@ export default function PostsList(){
             <div className="posts-list">
                 {[...arrayComponent.current]}
             </div>
-            <button type="button" className="btnLoadMore" onClick={()=>loadArrayOfComponents()}>Load More</button>
         </div>
     )
 }
