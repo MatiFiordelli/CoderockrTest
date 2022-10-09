@@ -78,7 +78,6 @@ export default function Menu(){
                 <li className="menu-mobile__items"><Link to="/">Posts</Link></li>
                 <li className="menu-mobile__items"><Link to="/contact">Contact</Link></li>
             </div>
-
         </header>
     )
 }

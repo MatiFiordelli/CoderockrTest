@@ -6,10 +6,10 @@ export default function Spinner(){
 
     return(
         <>
-        {spinner &&
-        (<div className='spinner-container'>
-            <div className='spinner-container__circle'/>
-        </div>)}
+            {spinner &&
+            (<div className='spinner-container'>
+                <div className='spinner-container__circle'/>
+            </div>)}
         </>
     )
 }

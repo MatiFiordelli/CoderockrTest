@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import FetchData from './Data/Fetch_data.js'
 import Menu from './Menu/Menu.js'
 import PostsList from './Posts_list/PostsList.js'
 import Routess from './Routes/Routess.js'
@@ -15,7 +14,6 @@ export default function Main(){
         <>
             <DataContext.Provider value={{data, setData}}>
                 <SpinnerContext.Provider value={{spinner,setSpinner}}>
-                    <FetchData/>
                     <Menu/>
                     <PostsList/>
                     <Routess/>

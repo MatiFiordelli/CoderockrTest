@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { DataContext } from '../Main.js'
 
 export default function TextsPost(props){
-    const {data, setData} = useContext(DataContext)
+    const {data} = useContext(DataContext)
     const [textsPostOrigin, setTextPostOrigin] = useState('')
     const [nameClass, setNameClass] = useState('')
     const [titleClass, setTitleClass] = useState('')
@@ -20,7 +20,6 @@ export default function TextsPost(props){
             setTitleClass('texts-post__title-single')
             setDetailsClass('texts-post__details-single')
         }
-        
     }, [])
 
     return(

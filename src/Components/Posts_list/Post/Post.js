@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { DataContext } from '../../Main.js'
 
-
 export default function Post(){
     const {data} = useContext(DataContext)
     const [index, setIndex] = useState(-1)
@@ -17,7 +16,6 @@ export default function Post(){
         }
     }
     
-
     const formattedDate = () => {
         if(index!==-1){
             let date = data[index].date.split('-')
@@ -75,8 +73,7 @@ export default function Post(){
             {index!==-1 &&    
             <div className="full-post-details">
                 {data[index].article}
-            </div>
-            }
+            </div>}            
         </div>
     )
 }

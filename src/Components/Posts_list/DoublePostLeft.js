@@ -4,7 +4,7 @@ import { DataContext } from '../Main.js'
 import TextsPost from './TextsPost.js'
 
 export default function DoublePostLeft(props){
-    const {data, setData} = useContext(DataContext)
+    const {data} = useContext(DataContext)
     
     return(
         <>
