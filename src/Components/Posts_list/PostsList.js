@@ -91,7 +91,7 @@ export default function PostsList(){
 
     //Detects if the scroll reachs the bottom page, for the infinite scroll
     window.onscroll = () =>  {
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-5) {
             setNextPage(nextPage+1)
             loadArrayOfComponents()
         }
