@@ -1,40 +1,82 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Contact(){
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [post, setPost] = useState('')
+	const navigate = useNavigate()
+
+	const closeContact = () => {
+		const close = document.querySelector('.contact-container')
+		close.style.display = 'none';
+		navigate('/')
+	}
+
+    const submitPost = (e) => {
+        e.preventDefault()
+    }
+
     return(
         <div className='contact-container'>
             <div className='contact-box'>
-                <h2 className="contact-box__title">Contact</h2>
-                <p className="contact-box__close">&#x2715;</p>
-                <form className="contact-form">
-                    <label htmlFor="fName" 
+                <div className="contact-box__title">Contact</div>
+                <div className="contact-box__close" onClick={closeContact}>&#x2715;</div>
+                <form className="contact-form" id="form_post" onSubmit={(e)=>submitPost(e)}>
+                    <label htmlFor="iName" 
                             className="contact-form__label">Name</label>
                     <input type="text" 
-                            name="fName" 
-                            className="contact-form__input" 
-                            value="" 
+							autoComplete="none" 
                             autoFocus 
-                            placeholder="Fill your full name"/>
+							name="fName" 
+                            id="iName"
+                            className="contact-form__input" 
+							minLength="3" 
+							onChange={(e)=>{setName(e.target.value)}}
+                            pattern="[a-zA-Z ]+" 
+							placeholder="Fill your full name"
+							required="required" 
+                            title="Just letters allowed"
+							value={name} />
 
-                    <label htmlFor="fEmail" 
+                    <label htmlFor="iEmail" 
                             className="contact-form__label">E-mail</label>
                     <input type="email" 
-                            name="fEmail" 
-                            className="contact-form__input"
-                            placeholder="Fill a valid  e-mail"/>
+                            autoComplete="none"
+							className="contact-form__input"
+							id="iEmail"
+							name="fEmail" 
+                            onChange={(e)=>{setEmail(e.target.value)}}
+                            placeholder="Fill a valid  e-mail"
+                            required="required" 
+							value={email}/>
 
-                    <label htmlFor="fPhone" 
+                    <label htmlFor="iPhone" 
                             className="contact-form__label">Phone</label>
                     <input type="tel" 
-                            name="fPhone" 
-                            className="contact-form__input"
-                            placeholder="Fill your phone"/>
+                            autoComplete="none" 
+							className="contact-form__input"
+							id="iPhone"
+							name="fPhone" 
+                            onChange={(e)=>{setPhone(e.target.value)}}
+                            pattern="[0-9]+" 
+							placeholder="Fill your phone"
+							required="required" 
+							title="Just numbers allowed"
+                            value={phone}/>
 
-                    <label htmlFor="fPost" 
+                    <label htmlFor="iPost" 
                             className="contact-form__label">Post</label>
                     <textarea name="fPost" 
+							autoComplete="none" 
                             className="contact-form__textarea"
-                            placeholder="Hello..."/>
+							id="iPost"
+							minLength="1" 
+							onChange={(e)=>{setPost(e.target.value)}}
+							placeholder="Hello..."
+							required="required" 
+                            value={post} />
 
                     <button type="submit" 
                             className="contact-form__button">&#x25bb;&nbsp;&nbsp;&nbsp;Submit</button>

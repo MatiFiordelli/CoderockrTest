@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Menu from './Menu/Menu.js'
-import Posts from './Posts_list/Posts.js'
+import PostsList from './Posts_list/PostsList.js'
+import Routess from './Routes/Routess.js'
+
+export const DataContext = React.createContext()
+export const SpinnerContext = React.createContext()
 
 export default function Main(){
+    const [data, setData] = useState('')
+    const [spinner, setSpinner] = useState(true)
+
     return(
-        <main className='main'>
-            <Menu/>
-            <Posts/>
-        </main>
+        <>
+            <DataContext.Provider value={{data, setData}}>
+                <SpinnerContext.Provider value={{spinner,setSpinner}}>
+                    <Menu/>
+                    <PostsList/>
+                    <Routess/>
+                </SpinnerContext.Provider>
+            </DataContext.Provider>
+        </>
     )
 }
