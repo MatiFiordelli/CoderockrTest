@@ -19,7 +19,7 @@ export default function PostsList(){
         if(f==='mobile'){ 
             articleCounter.current += 1   
             let  idx = articleCounter.current
-            if(idx <= Object.keys(data).length){
+            if(idx < Object.keys(data).length){
                 return (<article key={articleKey+i}><SinglePost index={idx}/></article>)}
         } 
         if(f==='pc'){
